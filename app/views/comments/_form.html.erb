@@ -1,0 +1,15 @@
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <div style='color: teal; font-family: arial; font-size: 14px; margin-bottom: 6px'>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </div>
+
+  <div style='color: teal; font-family: arial; font-size: 14px; margin-bottom: 6px'>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  <div>
+<% end %>
