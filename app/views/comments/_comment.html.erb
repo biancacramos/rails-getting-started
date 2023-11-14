@@ -1,8 +1,23 @@
 <div style='padding-bottom: 10px'>
-<p style='color: black; font-family: arial; font-size: 14px'>
-  <%= comment.body %>
-</p>
-<i><p style='color: DimGray; font-family: arial; font-size: 12px; font-weight: 300'>
-<%= comment.commenter %>
-</p></i>
+
+  <% unless comment.archived? %>
+
+    <p style='color: black; font-family: arial; font-size: 14px'>
+      <%= comment.body %>
+    </p>
+
+    <i>
+      <p style='color: DimGray; font-family: arial; font-size: 12px; font-weight: 300'>
+        <%= comment.commenter %>
+      </p>
+    </i>
+
+    <p style='font-family: arial; font-size: 12px; font-weight: 500'>
+      <%= link_to "destroy comment", [comment.article,comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: 'Are you sure?'
+                  } %>
+    </p>
+
+  <% end %>
 </div>

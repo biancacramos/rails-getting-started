@@ -9,6 +9,11 @@
     <%= form.text_area :body %>
   </div>
 
+  <div style='color: teal; font-family: arial; font-size: 14px; margin-bottom: 6px'>
+    <%= form.label :status %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
+  </div>
+
   <div>
     <%= form.submit %>
   <div>
