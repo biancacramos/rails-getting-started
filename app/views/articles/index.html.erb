@@ -1,15 +1,38 @@
-<h1>Articles</h1>
-<p><%= Article.public_count%> archives available</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div style='width: 100%; height: fit-content; padding: 5px; padding-left: 
+                20px; background-color: FireBrick'>
+      <h1 style='color: white; font-family: arial'>Ruby on Rails Getting Started Tutorial</h1>
+    </div>
+    <div style='padding-left: 30px'>
+      <h2 style='font-family: arial; color: FireBrick; margin-bottom: 0px'>Articles</h2>
+      <p style='font-family: arial; font-style: italic; color: DimGray; margin-top: 0px; font-size: 12px'><%= Article.public_count%> archives available</p>
 
-<ul>
-  <% @articles.each do |article| %>
-    <% unless article.archived? %>
-      <li>
-      <%= link_to article.title, article %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+      <ul>
+      <% @articles.each do |article| %>
+        <% unless article.archived? %>
+        <li>
+            <%= link_to article.title, article %>
+            </li>
+            <% end %>
+            <% end %>
+            </ul>
+            
+          <b><%= link_to "Add new article", new_article_path, :style=>'color: FireBrick' %></b>  
+    </div>    
+  </body>
+</html>
 
-<%= link_to "New article", new_article_path %>
+
+
+
 
